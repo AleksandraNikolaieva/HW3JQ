@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabs</title>
+	<style>
+		body {
+			background-color: #e0e0d1;
+		}
+
+		#content {
+			background-color: #ffff;
+			padding: 10px;
+		}
+
+		.button {
+			height: 2em;
+			background-color: #ffff;
+			margin: 0px 2px 0px 0px;
+			width: 100px;
+		}
+
+		.active {
+			background-color: #4d94ff;
+			color: #ffff;
+			font-weight: bold;
+		}
+
+		#contact form {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		#contact form input{
+			margin-bottom: 10px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			var text = $('#text');
+			var contacts = 
+				`<div id='contact'>
+					<h2>MAIL US</h2>
+					<form action=''>
+						<label>Your name: <br><input type="text" name=""></label>
+						<label>Your email: <br><input type="text" name=""></label>
+						<label>Subject: <br><input type="text" name=""></label>
+						<label>Your messege: <br><textarea placeholder="Add some text"></textarea></label>
+					</form>
+				</div>`;
+			var map = 
+				`<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10583.53979042634!2d35.040453!3d48.458737!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1155839c767d75b0!2sAcademy+IMT!5e0!3m2!1sen!2sua!4v1548277529608" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen id='map'></iframe>`;
+
+			$('.button').each(function() {
+				$(this).on('click', toggle);
+			});
+
+			function toggle() {
+				$('.button').removeClass('active');
+				$(this).addClass('active');
+
+				var inpName = $(this).attr('name');
+
+				switch (inpName) {
+					case 'about':
+						$('#content').html(text);
+						break;
+					case 'contacts':
+						$('#content').html(contacts);
+						break;
+					case 'map':
+						$('#content').html(map);
+						break;
+				}
+			}
+		})
+	</script>
+</head>
+<body>
+	<input type="button" name="about" value='About us' class='button active'>
+	<input type="button" name="contacts" value='Contacts' class='button'>
+	<input type="button" name="map" value='How to get' class='button'>
+	<div id='content'>
+		<p id='text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</body>
+</html>
